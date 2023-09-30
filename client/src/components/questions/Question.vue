@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { questions } from "@/components/questionSet.ts";
 import SingleMultipleChoiceButton from "@/components/questions/SingleMultipleChoiceButton.vue";
+import SubmitButton from "@/components/questions/SubmitButton.vue";
 import { Query } from "../query";
 
 let currentQuestionId = 2;
@@ -24,10 +25,17 @@ let query = new Query();
                 <SingleMultipleChoiceButton
                     :question_id="question.id"
                     :label="answer"
-                    :type="question.typeOfQuestion"
+                    :question_type="question.typeOfQuestion"
                     :query="query"
                 ></SingleMultipleChoiceButton>
             </div>
+
+            <SubmitButton
+                v-if="question.typeOfQuestion == 'multiple'"
+                :question_id="question.id"
+                :question_type="question.typeOfQuestion"
+                :query="query">
+            </SubmitButton>
         </div>
     </div>
 </template>

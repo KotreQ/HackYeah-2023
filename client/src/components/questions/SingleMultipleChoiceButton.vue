@@ -9,15 +9,15 @@ import { Query } from '../query';
 const props = defineProps({
     question_id: Number,
     label: String,
-    type: String,
+    question_type: String,
     query: Query
 });
 
 function click() {
-    if (props.type == "single") {
+    if (props.question_type == "single") {
         // Send immediately to server
     }
-    else if (props.type == "multiple") {
+    else if (props.question_type == "multiple") {
         // Store button data for later send
         props.query.addData([
             props.question_id,
