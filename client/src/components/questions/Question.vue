@@ -1,0 +1,49 @@
+<script setup lang="ts">
+import { questions } from "@/components/questionSet.ts";
+import SingleMultipleChoiceButton from "@/components/questions/SingleMultipleChoiceButton.vue";
+import SubmitButton from "@/components/questions/SubmitButton.vue";
+import TextEntry from "@/components/questions/TextEntry.vue";
+import { Query } from "../query";
+
+let query = new Query();
+</script>
+
+<template>
+    <div class="container">
+        <div v-for="question in questions" :key="question.id">
+            <h2 v-if="question.id == query.current_question_id.value">
+                {{ question.title }}
+            </h2>
+
+            <div
+                class="answer"
+                v-for="(answer, index) in question.answers"
+                v-if="question.id == query.current_question_id.value"
+                :key="index">
+
+                <SingleMultipleChoiceButton
+                    v-if="question.typeOfQuestion == 'single' || question.typeOfQuestion == 'multiple'"
+                    :question_id="question.id"
+                    :label="answer[0]"
+                    :question_type="question.typeOfQuestion"
+                    :next_question_id="answer[1]"
+                    :query="query">
+                </SingleMultipleChoiceButton>
+                <TextEntry
+                    v-if="question.typeOfQuestion == 'text'"
+                    :question_id="question.id"
+                    :next_question_id="answer[1]"
+                    :query="query">
+                </TextEntry>
+
+                <SubmitButton
+                    v-if="question.typeOfQuestion == 'multiple' || question.typeOfQuestion == 'text'"
+                    :question_id="question.id"
+                    :question_type="question.typeOfQuestion"
+                    :next_question_id="answer[1]"
+                    :query="query">
+                </SubmitButton>
+            </div>
+        </div>
+    </div>
+</template>
