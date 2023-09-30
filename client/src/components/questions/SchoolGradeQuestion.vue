@@ -1,45 +1,55 @@
-<script lang="ts">
-
-import {ref} from "vue";
-
-const schoolGrade = ref('');
+<script>
+let multiple = [];
 
 export default {
-	props: ['query'],
-	emits: ['on-submit'],
-	methods: {
-		submit() {
-			this.query.addData({
-				type: schoolGrade.value
-			});
+    data() {
+        return {
+            questions: [
+                { id: 0, title: 'Question 1' },
+                { id: 1, title: 'Question 2' },
+                {
+                    id: 2,
+                    title: 'Question 3',
+                    answers: ['Szkola srednia', 'Szkola wyzsza'],
+                    typeOfQuestion: 'single',
+                },
+            ],
+        };
+    },
 
-			this.$emit('on-submit');
-		}
-	},
-	data() {
-		return {schoolGrade};
-	}
-}
+    methods: {
+        checkButton() {
+            if (typeOfQuestion === 'multiple') {
+            }
+        },
+    },
+};
 
+let currentQuestionId = 0;
 </script>
 
 <template>
-	<p>Jaki poziom szkoly?</p>
+    <div class="container">
+        <div v-for="question in questions" :key="question.id">
+            <h2 v-if="question.id === 0">
+                {{ question.title }}
+            </h2>
 
-	<div class="flex flex-wrap gap-3">
-		<div class="flex align-items-center">
-			<RadioButton v-model="schoolGrade" inputId="schoolGradeMiddle" name="grade" value="middle"/>
-			<label for="schoolGradeMiddle" class="ml-2">Szkoła średnia</label>
-		</div>
-		<div class="flex align-items-center">
-			<RadioButton v-model="schoolGrade" inputId="schoolGradeStudies" name="grade" value="studies"/>
-			<label for="schoolGradeStudies" class="ml-2">Studia</label>
-		</div>
-	</div>
+            <div
+                class="answer"
+                v-for="(answer, index) in question.answers"
+                :key="index"
+            >
+                {{ answer }}
+            </div>
+        </div>
 
-	<Button icon="pi pi-check" aria-label="Submit" @click="submit()"/>
+        <div
+            class="anserws"
+            v-for="(answer, index) in questions.answers"
+            :key="index"
+        >
+            {{ answer }}
+        </div>
+    </div>
 </template>
-
-<style scoped>
-
-</style>
