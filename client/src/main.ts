@@ -6,6 +6,9 @@ import PrimeVue from 'primevue/config';
 import VueAxios from "vue-axios";
 import axios from "axios";
 
+import "primevue/resources/themes/lara-light-blue/theme.css";
+import "primeicons/primeicons.css";
+
 const app = createApp(App);
 
 app.use(router);
