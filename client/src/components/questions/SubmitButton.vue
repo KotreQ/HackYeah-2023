@@ -8,7 +8,7 @@ import { Query } from '../query';
 const props = defineProps({
     question_id: Number,
     next_question_id: Number,
-    query: Query
+    query: Query,
 });
 
 function click() {
@@ -16,7 +16,3 @@ function click() {
     props.query.current_question_id.value = props.next_question_id;
 }
 </script>
-
-<style scoped>
-
-</style>
