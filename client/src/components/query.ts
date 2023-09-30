@@ -7,6 +7,7 @@ export class Query {
 
 	addData(data: any): any {
 		this.data.push(data);
+		console.log(this.data);
 	}
 
 	getData(): any {

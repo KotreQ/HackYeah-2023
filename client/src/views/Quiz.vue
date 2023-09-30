@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
-import Question from "@/components/Question.vue";
+// import Question from "@/components/Question.vue";
+import Question from '@/components/questions/Question.vue';
 
 </script>
 
