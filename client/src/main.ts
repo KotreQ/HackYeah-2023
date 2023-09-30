@@ -5,11 +5,13 @@ import router from './router';
 import PrimeVue from 'primevue/config';
 import VueAxios from "vue-axios";
 import axios from "axios";
+import RadioButton from "primevue/radiobutton";
 import Button from "primevue/button";
+import InputText from 'primevue/inputtext';
 
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primeicons/primeicons.css";
-import RadioButton from "primevue/radiobutton";
+
 
 const app = createApp(App);
 
@@ -21,5 +23,6 @@ app.provide('axios', app.config.globalProperties.axios);
 
 app.component('Button', Button);
 app.component('RadioButton', RadioButton);
+app.component('InputText', InputText);
 
 app.mount('#app');

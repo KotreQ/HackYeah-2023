@@ -1,6 +1,9 @@
+import { ref } from "vue";
+
 export class Query {
 
 	data: any = [];
+	current_question_id = ref(0);
 
 	constructor() {
 	}
