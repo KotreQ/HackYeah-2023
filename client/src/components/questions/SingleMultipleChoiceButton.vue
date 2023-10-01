@@ -1,6 +1,5 @@
 <template>
-    <p>{{ props.label }}</p>
-    <input type="radio" name="asdasdasdasd" value="{{ props.label }}" @click="click" />
+    <button name="asdasdasdasd" @click="click">{{ props.label }}</button>
 </template>
 
 <script setup lang="ts">

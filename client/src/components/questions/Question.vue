@@ -10,15 +10,14 @@ let query = new Query();
 
 <template>
     <div class="container">
-        <div v-for="question in questions" :key="question.id">
-            <h2 v-if="question.id == query.current_question_id.value">
+        <div v-for="question in questions.slice(query.current_question_id.value, query.current_question_id.value + 1)">
+            <h2>
                 {{ question.title }}
             </h2>
 
             <div
                 class="answer"
                 v-for="(answer, index) in question.answers"
-                v-if="question.id == query.current_question_id.value"
                 :key="index">
 
                 <SingleMultipleChoiceButton
