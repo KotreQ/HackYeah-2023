@@ -12,7 +12,8 @@ class School(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(160), unique=True)
     school_type = db.Column(db.String(40))
-    coordinates = db.Column(db.String(60))
+    coordinates_ns = db.Column(db.String(30))
+    coordinates_ew = db.Column(db.String(30))
 
 class FieldOfStudy(db.Model):
     id = db.Column(db.Integer, primary_key=True)
