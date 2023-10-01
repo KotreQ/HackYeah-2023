@@ -1,7 +1,14 @@
 <template>
-    <p>{{ props.label }}</p>
-    <input type="radio" name="asdasdasdasd" value="{{ props.label }}" @click="click" />
+    <Button
+        @click="click"
+    >{{ props.label }}</Button>
 </template>
+
+<style>
+.p-button {
+    padding: 5px 10px;
+}
+</style>
 
 <script setup lang="ts">
 import { Query } from '../query';
