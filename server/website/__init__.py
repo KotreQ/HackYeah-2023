@@ -1,6 +1,6 @@
 from flask import Flask
 from . import config
-from .models import db, School, FieldOfStudy # needs to be loaded earlier
+from .models import db, School, FieldOfStudy, Location # needs to be loaded earlier
 import os
 import website
 from sqlalchemy.exc import OperationalError
