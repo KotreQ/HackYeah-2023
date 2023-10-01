@@ -8,6 +8,10 @@ import { Query } from '../query';
 let query = new Query();
 </script>
 
+<style lang="scss">
+@import '../../styles/index.scss';
+</style>
+
 <template>
     <div class="container">
         <div
@@ -20,23 +24,25 @@ let query = new Query();
                 {{ question.title }}
             </h2>
 
-            <div
-                class="answer"
-                v-for="(answer, index) in question.answers"
-                :key="index"
-            >
-                <SingleMultipleChoiceButton
-                    v-if="
-                        question.typeOfQuestion == 'single' ||
-                        question.typeOfQuestion == 'multiple'
-                    "
-                    :question_id="question.id"
-                    :label="answer[0]"
-                    :question_type="question.typeOfQuestion"
-                    :next_question_id="answer[1]"
-                    :query="query"
+            <div class="question__answer-container">
+                <div
+                    class="question__answer"
+                    v-for="(answer, index) in question.answers"
+                    :key="index"
                 >
-                </SingleMultipleChoiceButton>
+                    <SingleMultipleChoiceButton
+                        v-if="
+                            question.typeOfQuestion == 'single' ||
+                            question.typeOfQuestion == 'multiple'
+                        "
+                        :question_id="question.id"
+                        :label="answer[0]"
+                        :question_type="question.typeOfQuestion"
+                        :next_question_id="answer[1]"
+                        :query="query"
+                    >
+                    </SingleMultipleChoiceButton>
+                </div>
                 <TextEntry
                     v-if="question.typeOfQuestion == 'text'"
                     :question_id="question.id"
