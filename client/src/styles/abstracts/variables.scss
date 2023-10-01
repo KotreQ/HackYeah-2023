@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+// Fonts
+$openSans: 'Open Sans', sans-serif;
+
+// Colors
+$primary: #22282b;
+$lightGray: #76787a;
+$blue: #0052a5;
+
+// Gradients
+
+//RWD 450px, 800px, 1200px, 1400px
+$breakpoints: (
+    'sm': '28.125rem',
+    'md': '50rem',
+    'lg': '75rem',
+    'xl': '87.5rem',
+);

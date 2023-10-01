@@ -8,7 +8,7 @@ import { Query } from '../query';
 const props = defineProps({
     question_id: Number,
     next_question_id: Number,
-    query: Query
+    query: Query,
 });
 
 function keyInput(value: String | undefined) {
@@ -19,11 +19,7 @@ function keyInput(value: String | undefined) {
         }
     });
     data.push([props.question_id, value]);
-    console.log(data)
+    console.log(data);
     props.query.setData(data);
 }
 </script>
-
-<style scoped>
-
-</style>
