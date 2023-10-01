@@ -1,5 +1,10 @@
 <template>
-    <Button label="Wyślij" @click="click"></Button>
+    <Button class="question__button" @click="click"
+        ><img src="../../assets/arrow-left.svg" alt="Poprzednie pytanie"
+    /></Button>
+    <Button @click="click"
+        ><img src="../../assets/arrow-right.svg" alt="Nastepne pytanie"
+    /></Button>
 </template>
 
 <script setup lang="ts">

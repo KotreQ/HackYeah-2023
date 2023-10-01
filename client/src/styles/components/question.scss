@@ -23,13 +23,14 @@
         &-container {
             justify-content: center;
             display: flex;
-            gap: 4rem;
+            gap: 1.3125rem 4rem;
             max-width: 35.25rem;
             flex-wrap: wrap;
+            margin-top: 52px;
         }
     }
 
-    &__send-button {
+    &__button {
         display: flex;
         justify-content: center;
         align-items: center;
