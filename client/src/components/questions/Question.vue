@@ -24,44 +24,47 @@ let query = new Query();
                 {{ question.title }}
             </h2>
 
-            <div class="question__answer-container">
-                <div
-                    class="question__answer"
-                    v-for="(answer, index) in question.answers"
-                    :key="index"
-                >
-                    <SingleMultipleChoiceButton
+            <div
+                v-for="(answer, index) in question.answers"
+                :key="index"
+            >
+
+                <div class="question__answer-container">
+                    <div class="question__answer">
+                        <SingleMultipleChoiceButton
+                            v-if="
+                                question.typeOfQuestion == 'single' ||
+                                question.typeOfQuestion == 'multiple'
+                            "
+                            :question_id="question.id"
+                            :label="answer[0]"
+                            :question_type="question.typeOfQuestion"
+                            :next_question_id="answer[1]"
+                            :query="query"
+                        >
+                        </SingleMultipleChoiceButton>
+                    </div>
+
+                    <TextEntry
+                        v-if="question.typeOfQuestion == 'text'"
+                        :question_id="question.id"
+                        :next_question_id="answer[1]"
+                        :query="query"
+                    >
+                    </TextEntry>
+
+                    <SubmitButton
                         v-if="
-                            question.typeOfQuestion == 'single' ||
-                            question.typeOfQuestion == 'multiple'
+                            question.typeOfQuestion == 'multiple' ||
+                            question.typeOfQuestion == 'text'
                         "
                         :question_id="question.id"
-                        :label="answer[0]"
                         :question_type="question.typeOfQuestion"
                         :next_question_id="answer[1]"
                         :query="query"
                     >
-                    </SingleMultipleChoiceButton>
+                    </SubmitButton>
                 </div>
-                <TextEntry
-                    v-if="question.typeOfQuestion == 'text'"
-                    :question_id="question.id"
-                    :next_question_id="answer[1]"
-                    :query="query"
-                >
-                </TextEntry>
-
-                <SubmitButton
-                    v-if="
-                        question.typeOfQuestion == 'multiple' ||
-                        question.typeOfQuestion == 'text'
-                    "
-                    :question_id="question.id"
-                    :question_type="question.typeOfQuestion"
-                    :next_question_id="answer[1]"
-                    :query="query"
-                >
-                </SubmitButton>
             </div>
         </div>
     </div>
